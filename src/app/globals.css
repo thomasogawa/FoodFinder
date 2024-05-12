@@ -26,6 +26,36 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.buslist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.active {
+  border: 2px solid blue;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.active-done {
+  border: 2px solid lawngreen;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.not-active {
+  border: 2px solid white;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
