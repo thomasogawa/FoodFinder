@@ -30,4 +30,5 @@ https://www.youtube.com/watch?v=PfZ4oLftItk&list=PL2rFahu9sLJ2QuJaKKYDaJp0YqjFCD
 https://soundbuttonsworld.com/search/yay
 https://www.educative.io/answers/how-to-play-sound-when-hovering-in-react
 https://stackoverflow.com/questions/46337471/how-to-allow-cors-in-react-js
+https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c
 chat gpt 4 for error handling

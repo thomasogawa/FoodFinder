@@ -13,27 +13,27 @@ export default function RestaurantCards() {
   
     function handleGetLocation() {
         navigator.geolocation.getCurrentPosition(
-        position => {
-            const { latitude, longitude } = position.coords;
-            setLocation(`${latitude},${longitude}`);
-            fetch(`/api/restaurants?location=${encodeURIComponent(location)}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log('Data received:', data); // Log the received data
-                setBusinesses(data);
-            });
-            // assign styleList to all 0s for the length of businesses
-            let temp = [];
-            for (let i = 0; i < businesses.length; i++) {
-                temp.push(0);
+            position => {
+                const { latitude, longitude } = position.coords;
+                const newLocation = `${latitude},${longitude}`;
+                setLocation(newLocation);  // Update state for potential other uses
+                fetch(`/api/restaurants?location=${encodeURIComponent(newLocation)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Data received:', data);
+                        setBusinesses(data);
+                        setStyleList(new Array(data.length).fill(0)); // Initialize styleList after data is fetched
+                    })
+                    .catch(error => {
+                        console.error('Failed to fetch restaurants:', error);
+                    });
+            },
+            error => {
+                console.error('Failed to get current location:', error);
             }
-            setStyleList(temp);
-        },
-        error => {
-          console.error('Failed to get current location:', error);
-        }
-      );
+        );
     }
+    
 
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -112,7 +112,6 @@ export default function RestaurantCards() {
       </div>
     );
   }
-
 
 function getClassForStyle(value) {
     switch (value) {
