@@ -56,8 +56,86 @@ body {
   display: inline-block;
 }
 
+.random-button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.random-button:hover {
+  background-color: #45a049;
+}
+
+.custom-button:active {
+  background-color: #3e8e41;
+}
+
+.custom-button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@media screen and (max-width: 600px)
+{
+    .buslist {
+        display: block;
+    }
+    .active {
+        border: 2px solid blue;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        display: inline-block;
+    }
+    .active-done {
+        border: 2px solid lawngreen;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        display: inline-block;
+    }
+    .not-active {
+        border: 2px solid white;
+        padding: 5px;
+        margin: 10px;
+        border-radius: 5px;
+        display: inline-block;
+    }
+    .random-button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 5px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 7px;
+    }
+    .restaurant-card {
+        border: 2px solid rgb(255, 255, 255);
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        display: inline-block;
+        font-size: .25rem;
+    }
 }

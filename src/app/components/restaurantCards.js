@@ -7,6 +7,7 @@ export default function RestaurantCards() {
     const [businesses, setBusinesses] = useState([]);
     const [location, setLocation] = useState('');
     const [styleList, setStyleList] = useState([]);
+    const [picking, setPicking] = useState(false);
     const [play1] = useSound('ding.mp3');
     const [play2] = useSound('kidscheer.mp3');
   
@@ -41,6 +42,7 @@ export default function RestaurantCards() {
     //function to randomly pick
     async function handleRandomPick() {
         // set the styleList to all 0s to reset
+        setPicking(true);
         const numLoops = businesses.length + 5;
         let temp = [];
         for (let i = 0; i < businesses.length; i++) {
@@ -77,31 +79,24 @@ export default function RestaurantCards() {
                 return newStyleList; // return the new array
             });
         }
+        setPicking(false);
     }
 
-    function getClassForStyle(value) {
-        switch (value) {
-            case 1:
-                return "active";
-            case 2:
-                return "active-done";
-            default:
-                return "not-active";
-        }
-    }
+    
 
     return (
       <div>
-        <h2>Random Businesses</h2>
-        <button onClick={handleGetLocation}>Get Current Location</button>
+        <div class = "button-container">
+            <button onClick={handleGetLocation} className='random-button' disabled={picking}>Get Current Location</button>
+        </div> 
         {location && 
             <div>
-            <p>Here are some random restaurants:</p>
-            {businesses.length >= 1 && <button onClick={handleRandomPick}>Random Pick!</button>}
+            <p>Click the button below to choose a select a random restaurant!</p>
+            {businesses.length >= 1 && <div class = "button-container"><button onClick={handleRandomPick} disabled={picking} className='random-button'>Random Pick!</button></div>}
             <ul className='buslist'>
             {businesses.length > 0 ? (
                 businesses.map((business, index) => (
-                <li key={business.place_id} className={getClassForStyle(styleList[index])}>
+                <li key={business.place_id} class = "restaurant-card" className={getClassForStyle(styleList[index])}>
                     <h3>{business.name}</h3>
                     <p>Address: {business.vicinity}</p>
                     <p>Rating: {business.rating}🌟</p>
@@ -109,7 +104,7 @@ export default function RestaurantCards() {
                 </li>
                 ))
             ) : (
-                <li>No businesses found.</li>
+                <li>No businesses found. Try Again?</li>
             )}
             </ul>
             </div>
@@ -118,6 +113,17 @@ export default function RestaurantCards() {
     );
   }
 
+
+function getClassForStyle(value) {
+    switch (value) {
+        case 1:
+            return "active";
+        case 2:
+            return "active-done";
+        default:
+            return "not-active";
+    }
+}
 
 
 function convertPriceLevelToDollarSigns(priceLevel) {

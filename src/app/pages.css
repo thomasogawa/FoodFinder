@@ -1,0 +1,108 @@
+header{
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    padding-top: 1%;
+    font-size: 1.5rem;
+}
+
+h2{
+    color: white;
+    text-align: center;
+    padding: 1%;
+    font-size: large;
+}
+
+p{
+    color: white;
+    text-align: center;
+    padding: 1%;
+}
+
+footer{
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    font-size: large;
+    text-align: center;
+}
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+}
+  
+.content-wrap {
+    padding-bottom: 2.5rem;   /* Footer height */
+}
+  
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
+}
+
+
+@media (max-width: 600px) {
+    header{
+        background-color: #4caf50;
+        color: white;
+        padding: 5px;
+        font-size: .75rem;
+        text-align: center;
+    }
+    
+    h1{
+        color: white;
+        text-align: center;
+        padding-top: 1%;
+        font-size: .5rem;
+    }
+    
+    h2{
+        color: white;
+        text-align: center;
+        padding: 1%;
+        font-size: .5rem;
+    }
+    
+    p{
+        color: white;
+        text-align: center;
+        padding: 1%;
+        font: .5rem;
+    }
+    
+    footer{
+        background-color: #4caf50;
+        color: white;
+        padding: 5px;
+        font-size: large;
+        text-align: center;
+    }
+    
+    .page-container {
+        position: relative;
+        min-height: 100vh;
+    }
+      
+    .content-wrap {
+        padding-bottom: 2.5rem;   /* Footer height */
+    }
+      
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        font-size: .5rem;
+        height: 2.5rem;/* Footer height */
+    }
+}
